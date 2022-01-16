@@ -1,4 +1,8 @@
 from tkinter import *
+import DogData
+
+doglist = []
+DogData.readList(doglist)
 
 ws = Tk()
 ws.geometry('400x300')
@@ -12,8 +16,13 @@ frame.pack(expand=True)
 
 f = ("Times bold", 14)
 
+# val is equal to the value of the currently selected radio button
+# default is 0
+val = IntVar()
+val.set(0)
 
 def nextPage():
+    DogData.addDog(doglist, [p_name.get(), p_age.get(), DogData.dog_gender(val.get()), p_breed.get()])
     ws.destroy()
     import AddADog_Confirmation
 
@@ -66,11 +75,6 @@ frame2 = Frame(
     frame
 )
 frame2.grid(row=4, column=1, pady=5)
-
-# val is equal to the value of the currently selected radio button
-# default is 0
-val = IntVar()
-val.set(0)
 
 undetermined_rb = Radiobutton(
     frame2,

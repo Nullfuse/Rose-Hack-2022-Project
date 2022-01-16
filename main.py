@@ -1,10 +1,6 @@
 from tkinter import *
 from PIL import Image,ImageTk
 
-import DogList
-
-print(doglist[1])
-
 #---------------------------FRONTEND---------------------------
 ws = Tk()
 ws.geometry('400x300')

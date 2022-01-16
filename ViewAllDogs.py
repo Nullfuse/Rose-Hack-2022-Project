@@ -1,5 +1,9 @@
 from tkinter import *
 from tkinter import ttk
+import DogData
+
+doglist = []
+DogData.readList(doglist)
 
 ws = Tk()
 ws.attributes('-zoomed', True)
@@ -29,27 +33,8 @@ def home():
     ws.destroy()
     import main
 
-tv.insert(parent='', index=0, iid=0, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=1, iid=1, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=2, iid=2, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=3, iid=3, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=4, iid=4, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=5, iid=5, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=6, iid=6, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=7, iid=7, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=8, iid=8, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=9, iid=9, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=10, iid=10, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=11, iid=11, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=12, iid=12, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=13, iid=13, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=14, iid=14, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=15, iid=15, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=16, iid=16, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=17, iid=17, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=18, iid=18, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=19, iid=19, values=("A", "B", "C", "D"))
-tv.insert(parent='', index=20, iid=20, values=("A", "B", "C", "D"))
+for i in range(len(doglist)):
+  tv.insert(parent='', index=i, iid=i, values=(doglist[i].name, doglist[i].breed,doglist[i].age, doglist[i].gender))
 
 Button(
     ws, 
