@@ -12,21 +12,8 @@ frame.pack(expand=True)
 
 f = ("Times bold", 14)
 
-# val is equal to the value of the currently selected radio button
-# default is 0
-val = IntVar()
-val.set(0)
-
-def dog_gender(val):
-    switcher = {
-        0: "Undetermined",
-        1: "Male",
-        2: "Female"
-    }
 
 def nextPage():
-    newDog = Dog([p_name.get(), p_age.get(), dog_gender(val), p_breed.get()])
-    doglist.append(newDog)
     ws.destroy()
     import AddADog_Confirmation
 
@@ -79,6 +66,11 @@ frame2 = Frame(
     frame
 )
 frame2.grid(row=4, column=1, pady=5)
+
+# val is equal to the value of the currently selected radio button
+# default is 0
+val = IntVar()
+val.set(0)
 
 undetermined_rb = Radiobutton(
     frame2,
